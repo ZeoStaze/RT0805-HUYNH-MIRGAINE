@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Client Tracker</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="create.js"></script>
+	<script>
+		// Redirection si utilisateur non connecté
+		if (!sessionStorage.getItem('utilisateur')) {
+			window.location = "./index.html"
+		}
+	</script>
+</head>
+
+<body>
+	<nav class="navbar bg-primary" style="height: 250px; display: flex">
+		<div class="container-fluid" style="margin-left: 50px; margin-right: 50px;">
+			<h2 class="text-light" href="#">Sport Tracker</h2>
+			<h5 class="text-light" href="#">Connecté en tant que: <span id="utilisateur"></span></h5>
+			<script>
+				document.getElementById("utilisateur").innerHTML = sessionStorage.getItem('utilisateur')
+			</script>
+		</div>
+	</nav>
+	<div class="card border-primary mb-3" style="max-width: 28rem; margin: auto auto; margin-top: -35px">
+		<div class="card-header">Commencer une nouvelle activité</div>
+		<div class="card-body">
+			<form>
+				<fieldset>
+					<div class="form-group" style="margin-bottom: 10px">
+						<select class="form-select" id="sportSelect">
+							<option>Course à pied</option>
+							<option>Vélo</option>
+							<option>Ski</option>
+							<option>Randonné</option>
+							<option>Saute mouton</option>
+						</select>
+					</div>
+					<div id="errorContainer"></div>
+					<button type="button" class="btn btn-success" style="width: 100%;" onclick="createRequest()">Commencer
+						l'activité</button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>

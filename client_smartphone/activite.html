@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Client Tracker</title>
+	<script type="text/javascript" src="map.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script>
+		// Redirection si utilisateur non connecté
+		if (!sessionStorage.getItem('utilisateur')) {
+			window.location = "./index.html"
+		}
+		// Redirection si pas d'activités démarrées
+		if(!sessionStorage.getItem('activiteId')) {
+			window.location = "./creation.html"
+		}
+
+		console.log("session store", sessionStorage.getItem('activiteId'))
+	</script>
+</head>
+
+<body>
+	<nav class="navbar bg-primary" style="height: 250px">
+		<div class="container-fluid" style="margin-left: 50px;margin-right: 50px">
+			<h2 class="text-light" href="#">Sport Tracker</h2>
+			<h5 class="text-light" href="#">Connecté en tant que: <span id="utilisateur"></span></h5>
+			<script>
+				document.getElementById("utilisateur").innerHTML = sessionStorage.getItem('utilisateur')
+			</script>
+		</div>
+	</nav>
+	<div class="card border-primary mb-3" style="max-width: 55rem; margin: auto auto; margin-top: -35px">
+		<div class="card-header">Simuler la nouvelle activité</div>
+		<div class="card-body">
+			<div id="map" style="height: 500px; width: 100%; margin-bottom: 10px;"></div>
+			<p class="text-muted">(Cliquer sur la carte pour ajouter une position)</p>
+			<div id="errorContainer"></div>
+				<form action="creation.html">
+					<button type="button" class="btn btn-warning" style="width: 100%;" onclick="terminerRequest()">Terminer l'activité</button>
+				</form>
+		</div>
+	</div>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&v=weekly"
+		defer></script>
+</body>
+
+</html>

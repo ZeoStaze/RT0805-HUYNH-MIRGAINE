@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Client Tracker</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="login.js"></script>
+</head>
+
+<body>
+	<nav class="navbar bg-primary" style="height: 250px">
+		<div class="container-fluid" style="margin-left: 50px">
+			<h2 class="text-light" href="#">Sport Tracker</h2>
+		</div>
+	</nav>
+	<div class="card border-primary mb-3" style="max-width: 28rem; margin: auto auto; margin-top: -35px">
+		<div class="card-header">Se connecter</div>
+		<div class="card-body">
+			<form>
+				<fieldset>
+					<div class="form-group" style="margin-bottom: 10px">
+						<input class="form-control" id="idInput" placeholder="Identifiant">
+					</div>
+					<div class="form-group" style="margin-bottom: 10px">
+						<input type="password" class="form-control" id="mdpInput" placeholder="Mot de passe">
+					</div>
+					<div id="errorContainer"></div>
+					
+					<button type="button" class="btn btn-success" style="width: 100%;" onclick="loginRequest()">Connexion</button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>
